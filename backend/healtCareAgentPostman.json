@@ -1,0 +1,264 @@
+{
+  "info": {
+    "name": "Healthcare AI Agent API",
+    "description": "Complete API collection for Healthcare AI Agent - Festival, AQI, and Epidemic prediction system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Knowledge Management",
+      "item": [
+        {
+          "name": "Add Knowledge - Diwali",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": \"Diwali\",\n  \"season\": \"Autumn/Winter\",\n  \"healthImpact\": \"Increased respiratory issues due to firecracker smoke, burn injuries, digestive problems from overeating sweets\",\n  \"recommendedStaffing\": \"Increase emergency staff by 30%, pulmonology specialists by 40%, burn unit by 25%\",\n  \"requiredSupplies\": \"Respiratory medications (bronchodilators, steroids), burn treatment supplies, antacids, IV fluids\",\n  \"patientAdvisory\": \"Avoid firecracker exposure, maintain air purifiers, moderate sweet consumption, monitor blood sugar levels\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/knowledge/add",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "knowledge", "add"]
+            }
+          }
+        },
+        {
+          "name": "Add Knowledge - High AQI",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aqi\": \"High (151-200)\",\n  \"healthImpact\": \"Respiratory distress, asthma exacerbation, cardiovascular stress, eye irritation\",\n  \"recommendedStaffing\": \"Increase pulmonology by 45%, emergency by 30%, cardiology by 20%\",\n  \"requiredSupplies\": \"Inhalers, nebulizers, oxygen cylinders, respiratory medications, N95 masks\",\n  \"patientAdvisory\": \"Stay indoors, use air purifiers, wear N95 masks outdoors, avoid physical exertion\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/knowledge/add",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "knowledge", "add"]
+            }
+          }
+        },
+        {
+          "name": "Add Knowledge - Holi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": \"Holi\",\n  \"season\": \"Spring\",\n  \"healthImpact\": \"Skin allergies from synthetic colors, eye infections, cold and flu cases, alcohol-related incidents\",\n  \"recommendedStaffing\": \"Increase dermatology by 35%, ophthalmology by 30%, general emergency by 20%\",\n  \"requiredSupplies\": \"Antihistamines, topical steroids, eye drops, skin cleansers, cold medications\",\n  \"patientAdvisory\": \"Use natural colors, protect eyes and skin, stay hydrated, avoid excessive alcohol\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/knowledge/add",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "knowledge", "add"]
+            }
+          }
+        },
+        {
+          "name": "Get All Knowledge Entries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/api/knowledge?limit=10&offset=0",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "knowledge"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Knowledge Entry",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9000/api/knowledge/YOUR_ENTRY_ID_HERE",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "knowledge", "YOUR_ENTRY_ID_HERE"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Predictions",
+      "item": [
+        {
+          "name": "Predict - Diwali + High AQI",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": \"Diwali\",\n  \"aqi\": \"High (151-200)\",\n  \"epidemic\": null,\n  \"currentStaffing\": {\n    \"doctors\": 50,\n    \"nurses\": 120,\n    \"specialists\": 30,\n    \"supportStaff\": 80\n  },\n  \"currentSupply\": {\n    \"masks\": 1000,\n    \"gloves\": 5000,\n    \"ventilators\": 20,\n    \"oxygenCylinders\": 100,\n    \"respiratoryMeds\": 500,\n    \"burnKits\": 50\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        },
+        {
+          "name": "Predict - Dengue Epidemic",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": null,\n  \"aqi\": \"Normal\",\n  \"epidemic\": \"Dengue\",\n  \"currentStaffing\": {\n    \"doctors\": 45,\n    \"nurses\": 100,\n    \"specialists\": 25,\n    \"supportStaff\": 70\n  },\n  \"currentSupply\": {\n    \"antivirals\": 200,\n    \"ivFluids\": 1000,\n    \"plateletKits\": 50,\n    \"mosquitoRepellent\": 500\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        },
+        {
+          "name": "Predict - Holi Festival",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": \"Holi\",\n  \"aqi\": \"Moderate\",\n  \"epidemic\": null,\n  \"currentStaffing\": {\n    \"doctors\": 40,\n    \"nurses\": 90,\n    \"specialists\": 20,\n    \"supportStaff\": 60\n  },\n  \"currentSupply\": {\n    \"antihistamines\": 300,\n    \"eyeDrops\": 200,\n    \"topicalSteroids\": 150,\n    \"skinCleansers\": 100\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        },
+        {
+          "name": "Predict - COVID-19 Outbreak",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": null,\n  \"aqi\": \"Normal\",\n  \"epidemic\": \"COVID-19\",\n  \"currentStaffing\": {\n    \"doctors\": 60,\n    \"nurses\": 150,\n    \"specialists\": 40,\n    \"supportStaff\": 100\n  },\n  \"currentSupply\": {\n    \"n95Masks\": 5000,\n    \"ventilators\": 30,\n    \"oxygenCylinders\": 200,\n    \"antivirals\": 500,\n    \"vaccines\": 1000\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        },
+        {
+          "name": "Predict - Monsoon Season",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": \"Monsoon Season\",\n  \"aqi\": \"Moderate\",\n  \"epidemic\": null,\n  \"currentStaffing\": {\n    \"doctors\": 50,\n    \"nurses\": 110,\n    \"specialists\": 35,\n    \"supportStaff\": 75\n  },\n  \"currentSupply\": {\n    \"antibiotics\": 800,\n    \"antimalarials\": 400,\n    \"dengueDiagnosticKits\": 100,\n    \"ivFluids\": 1500,\n    \"oxygenCylinders\": 120\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        },
+        {
+          "name": "Predict - Very High AQI Emergency",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"festival\": null,\n  \"aqi\": \"Very High (201-300)\",\n  \"epidemic\": null,\n  \"currentStaffing\": {\n    \"doctors\": 55,\n    \"nurses\": 130,\n    \"specialists\": 35,\n    \"supportStaff\": 85\n  },\n  \"currentSupply\": {\n    \"respiratoryMeds\": 800,\n    \"oxygenCylinders\": 150,\n    \"ventilators\": 25,\n    \"n95Masks\": 3000,\n    \"nebulizers\": 100,\n    \"icuMedications\": 500\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:9000/api/predict",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "9000",
+              "path": ["api", "predict"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Healthcare PostgreSQL",
+      "Group": "Healthcare",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "healthcare_db",
+      "Username": "healthcare_user",
+      "Password": "healthcare_pass_2024",
+      "SSLMode": "prefer",
+      "Comment": "Healthcare Agent Database"
+    }
+  }
+}

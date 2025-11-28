@@ -1,0 +1,39 @@
+{
+  "name": "surge-agent-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "node test-api.js",
+    "start": "node server.js",
+    "clear-db": "node clear-databases.js"
+  },
+  "dependencies": {
+    "@langchain/community": "^1.0.4",
+    "@langchain/core": "^1.0.6",
+    "@langchain/openai": "^1.1.2",
+    "@openai/agents": "^0.3.2",
+    "@openai/agents-openai": "^0.3.2",
+    "@qdrant/js-client-rest": "^1.16.0",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "d3-dsv": "^2.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "form-data": "^4.0.5",
+    "langchain": "^1.0.6",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.4.5",
+    "pg": "^8.16.3",
+    "uuid": "^13.0.0",
+    "winston": "^3.18.3",
+    "winston-daily-rotate-file": "^5.0.0",
+    "xlsx": "^0.18.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
